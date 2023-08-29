@@ -1,0 +1,68 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>TresRayaSockets</groupId>
+  <artifactId>TresRayaSockets</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+
+  <build>
+    <sourceDirectory>src</sourceDirectory>
+
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <configuration>
+          <release>18</release>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>3.2.2</version>
+        <executions>
+          <execution>
+            <id>exec-client</id>
+            <phase>package</phase>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+            <configuration>
+              <classifier>client</classifier>
+              <archive>
+                <manifest>
+                  <mainClass>es.florida.AEV2V.cliente.Cliente</mainClass>
+                </manifest>
+              </archive>
+              <includes>
+                <include>es/florida/AEV2V/cliente/**</include>
+              </includes>
+            </configuration>
+          </execution>
+          <execution>
+            <id>exec-server</id>
+            <phase>package</phase>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+            <configuration>
+              <classifier>server</classifier>
+              <archive>
+                <manifest>
+                  <mainClass>es.florida.AEV2V.servidor.Servidor</mainClass>
+                </manifest>
+              </archive>
+              <includes>
+                <include>es/florida/AEV2V/servidor/**</include>
+              </includes>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
